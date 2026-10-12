@@ -4,7 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="img/logo.png">
-<style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+<style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}
+/* v7: fotos que pasan solas */
+.reels{display:grid;gap:14px;margin-inline:calc(50% - 50vw);overflow:hidden}
+.rail{overflow:hidden}
+.rail .rail-in{display:flex;gap:14px;width:max-content}
+.rail .dup{display:contents}
+.ph{flex:none;padding:0;border:0;background:none;cursor:zoom-in;border-radius:14px;overflow:hidden;height:clamp(180px,24vw,280px)}
+.ph img{height:100%;width:auto;display:block;transition:transform .5s ease}
+.ph:hover img{transform:scale(1.04)}
+@media (prefers-reduced-motion:no-preference){
+  .rail .rail-in{animation:reel 70s linear infinite}
+  .rail.rb .rail-in{animation-duration:62s;animation-direction:reverse}
+  .reels:hover .rail-in{animation-play-state:paused}
+  @keyframes reel{to{transform:translateX(calc(-50% - 7px))}}
+}
+@media (prefers-reduced-motion:reduce){.rail{overflow-x:auto}.rail .dup{display:none}}
+</style>
 <title>Formación Profesional · Colegio Edith Stein</title>
 <meta name="description" content="Formación Profesional en el Colegio Edith Stein (Usera, Madrid): Grado Medio y Grado Superior en modalidad dual.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -692,31 +708,11 @@ nav.main a.btn{border-radius:10px}
       <div class="head">
         <p class="eyebrow">Vida en Edith Stein</p>
         <h2>Así es estudiar con nosotros</h2>
-        <p class="lead">Aulas taller, talleres con entidades, voluntariado, salidas y fiestas. Pulsa una foto para verla en grande.</p>
+        <p class="lead">Aulas taller, talleres con entidades, voluntariado, salidas y fiestas. Pasa el ratón para pararlas y pulsa una para verla en grande.</p>
       </div>
-      <div class="filters" role="group" aria-label="Filtrar fotos">
-        <button type="button" aria-pressed="true" data-f="all">Todas</button>
-        <button type="button" aria-pressed="false" data-f="aula">En el aula</button>
-        <button type="button" aria-pressed="false" data-f="talleres">Talleres</button>
-        <button type="button" aria-pressed="false" data-f="salidas">Salidas y voluntariado</button>
-        <button type="button" aria-pressed="false" data-f="fiestas">Fiestas</button>
-      </div>
-      <div class="gallery">
-          <figure data-cat="aula"><button type="button" class="gbtn" data-src="img/p06-aula-dependencia.jpg" data-cap="Aula taller de Dependencia"><img src="img/p06-aula-dependencia.jpg" alt="Aula taller de Dependencia" loading="lazy"><figcaption>Aula taller de Dependencia</figcaption></button></figure>
-          <figure data-cat="fiestas"><button type="button" class="gbtn" data-src="img/p01-san-isidro.jpg" data-cap="San Isidro 2026"><img src="img/p01-san-isidro.jpg" alt="San Isidro 2026" loading="lazy"><figcaption>San Isidro 2026</figcaption></button></figure>
-          <figure data-cat="aula"><button type="button" class="gbtn" data-src="img/p12-transferencias.jpg" data-cap="Prácticas de transferencias"><img src="img/p12-transferencias.jpg" alt="Prácticas de transferencias" loading="lazy"><figcaption>Prácticas de transferencias</figcaption></button></figure>
-          <figure data-cat="salidas"><button type="button" class="gbtn" data-src="img/p02-voluntariado.jpg" data-cap="Voluntariado con Fundación Madrina"><img src="img/p02-voluntariado.jpg" alt="Voluntariado con Fundación Madrina" loading="lazy"><figcaption>Voluntariado con Fundación Madrina</figcaption></button></figure>
-          <figure data-cat="aula"><button type="button" class="gbtn" data-src="img/p05-cuento-fieltro.jpg" data-cap="Cuentos de fieltro para Infantil"><img src="img/p05-cuento-fieltro.jpg" alt="Cuentos de fieltro para Infantil" loading="lazy"><figcaption>Cuentos de fieltro para Infantil</figcaption></button></figure>
-          <figure data-cat="talleres"><button type="button" class="gbtn" data-src="img/p09-braille.jpg" data-cap="Taller de braille con la ONCE"><img src="img/p09-braille.jpg" alt="Taller de braille con la ONCE" loading="lazy"><figcaption>Taller de braille con la ONCE</figcaption></button></figure>
-          <figure data-cat="salidas"><button type="button" class="gbtn" data-src="img/p14-pipo-velasco.jpg" data-cap="Visita al Centro Juvenil Pipo Velasco"><img src="img/p14-pipo-velasco.jpg" alt="Visita al Centro Juvenil Pipo Velasco" loading="lazy"><figcaption>Visita al Centro Juvenil Pipo Velasco</figcaption></button></figure>
-          <figure data-cat="talleres"><button type="button" class="gbtn" data-src="img/p13-simulador.jpg" data-cap="Traje simulador de envejecimiento"><img src="img/p13-simulador.jpg" alt="Traje simulador de envejecimiento" loading="lazy"><figcaption>Traje simulador de envejecimiento</figcaption></button></figure>
-          <figure data-cat="aula"><button type="button" class="gbtn" data-src="img/p07-aula-infantil.jpg" data-cap="Clase en el aula de Infantil"><img src="img/p07-aula-infantil.jpg" alt="Clase en el aula de Infantil" loading="lazy"><figcaption>Clase en el aula de Infantil</figcaption></button></figure>
-          <figure data-cat="fiestas"><button type="button" class="gbtn" data-src="img/p15-reyes.jpg" data-cap="Los Reyes Magos visitan el cole"><img src="img/p15-reyes.jpg" alt="Los Reyes Magos visitan el cole" loading="lazy"><figcaption>Los Reyes Magos visitan el cole</figcaption></button></figure>
-          <figure data-cat="talleres"><button type="button" class="gbtn" data-src="img/p11-sensorial.jpg" data-cap="Materiales de estimulación sensorial"><img src="img/p11-sensorial.jpg" alt="Materiales de estimulación sensorial" loading="lazy"><figcaption>Materiales de estimulación sensorial</figcaption></button></figure>
-          <figure data-cat="salidas"><button type="button" class="gbtn" data-src="img/p03-salida-cultural.jpg" data-cap="Salida cultural por Madrid"><img src="img/p03-salida-cultural.jpg" alt="Salida cultural por Madrid" loading="lazy"><figcaption>Salida cultural por Madrid</figcaption></button></figure>
-          <figure data-cat="aula"><button type="button" class="gbtn" data-src="img/p10-pantalla.jpg" data-cap="Actividades con pantalla digital"><img src="img/p10-pantalla.jpg" alt="Actividades con pantalla digital" loading="lazy"><figcaption>Actividades con pantalla digital</figcaption></button></figure>
-          <figure data-cat="aula"><button type="button" class="gbtn" data-src="img/p04-infantil-asamblea.jpg" data-cap="Prácticas en Educación Infantil"><img src="img/p04-infantil-asamblea.jpg" alt="Prácticas en Educación Infantil" loading="lazy"><figcaption>Prácticas en Educación Infantil</figcaption></button></figure>
-          <figure data-cat="fiestas"><button type="button" class="gbtn" data-src="img/p08-disfraces.jpg" data-cap="Disfraces y teatro"><img src="img/p08-disfraces.jpg" alt="Disfraces y teatro" loading="lazy"><figcaption>Disfraces y teatro</figcaption></button></figure>
+      <div class="reels" aria-label="Fotos del centro">
+        <div class="rail ra"><div class="rail-in"><button type="button" class="ph" data-i="0" aria-label="Ver foto en grande: Alumnas en el aula taller de Dependencia"><img src="img/p06-aula-dependencia.jpg" alt="Alumnas en el aula taller de Dependencia" loading="lazy"></button><button type="button" class="ph" data-i="1" aria-label="Ver foto en grande: Alumnos en la fiesta de San Isidro"><img src="img/p01-san-isidro.jpg" alt="Alumnos en la fiesta de San Isidro" loading="lazy"></button><button type="button" class="ph" data-i="2" aria-label="Ver foto en grande: Práctica de transferencia desde silla de ruedas"><img src="img/p12-transferencias.jpg" alt="Práctica de transferencia desde silla de ruedas" loading="lazy"></button><button type="button" class="ph" data-i="3" aria-label="Ver foto en grande: Alumnos en una actividad de voluntariado"><img src="img/p02-voluntariado.jpg" alt="Alumnos en una actividad de voluntariado" loading="lazy"></button><button type="button" class="ph" data-i="4" aria-label="Ver foto en grande: Alumnas con un cuento de fieltro"><img src="img/p05-cuento-fieltro.jpg" alt="Alumnas con un cuento de fieltro" loading="lazy"></button><button type="button" class="ph" data-i="5" aria-label="Ver foto en grande: Taller de braille"><img src="img/p09-braille.jpg" alt="Taller de braille" loading="lazy"></button><button type="button" class="ph" data-i="6" aria-label="Ver foto en grande: Grupo de alumnos en una visita"><img src="img/p14-pipo-velasco.jpg" alt="Grupo de alumnos en una visita" loading="lazy"></button><button type="button" class="ph" data-i="7" aria-label="Ver foto en grande: Alumnos probando un traje simulador"><img src="img/p13-simulador.jpg" alt="Alumnos probando un traje simulador" loading="lazy"></button><span class="dup"><button type="button" class="ph" data-i="0" tabindex="-1" aria-hidden="true"><img src="img/p06-aula-dependencia.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="1" tabindex="-1" aria-hidden="true"><img src="img/p01-san-isidro.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="2" tabindex="-1" aria-hidden="true"><img src="img/p12-transferencias.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="3" tabindex="-1" aria-hidden="true"><img src="img/p02-voluntariado.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="4" tabindex="-1" aria-hidden="true"><img src="img/p05-cuento-fieltro.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="5" tabindex="-1" aria-hidden="true"><img src="img/p09-braille.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="6" tabindex="-1" aria-hidden="true"><img src="img/p14-pipo-velasco.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="7" tabindex="-1" aria-hidden="true"><img src="img/p13-simulador.jpg" alt="" loading="lazy"></button></span></div></div>
+        <div class="rail rb"><div class="rail-in"><button type="button" class="ph" data-i="8" aria-label="Ver foto en grande: Clase en el aula de Infantil"><img src="img/p07-aula-infantil.jpg" alt="Clase en el aula de Infantil" loading="lazy"></button><button type="button" class="ph" data-i="9" aria-label="Ver foto en grande: Alumnos disfrazados de Reyes Magos"><img src="img/p15-reyes.jpg" alt="Alumnos disfrazados de Reyes Magos" loading="lazy"></button><button type="button" class="ph" data-i="10" aria-label="Ver foto en grande: Alumnos con materiales sensoriales"><img src="img/p11-sensorial.jpg" alt="Alumnos con materiales sensoriales" loading="lazy"></button><button type="button" class="ph" data-i="11" aria-label="Ver foto en grande: Grupo de alumnos en una salida"><img src="img/p03-salida-cultural.jpg" alt="Grupo de alumnos en una salida" loading="lazy"></button><button type="button" class="ph" data-i="12" aria-label="Ver foto en grande: Alumnos con una pantalla digital"><img src="img/p10-pantalla.jpg" alt="Alumnos con una pantalla digital" loading="lazy"></button><button type="button" class="ph" data-i="13" aria-label="Ver foto en grande: Alumnas en prácticas en un aula de Infantil"><img src="img/p04-infantil-asamblea.jpg" alt="Alumnas en prácticas en un aula de Infantil" loading="lazy"></button><button type="button" class="ph" data-i="14" aria-label="Ver foto en grande: Alumnas disfrazadas"><img src="img/p08-disfraces.jpg" alt="Alumnas disfrazadas" loading="lazy"></button><span class="dup"><button type="button" class="ph" data-i="8" tabindex="-1" aria-hidden="true"><img src="img/p07-aula-infantil.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="9" tabindex="-1" aria-hidden="true"><img src="img/p15-reyes.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="10" tabindex="-1" aria-hidden="true"><img src="img/p11-sensorial.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="11" tabindex="-1" aria-hidden="true"><img src="img/p03-salida-cultural.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="12" tabindex="-1" aria-hidden="true"><img src="img/p10-pantalla.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="13" tabindex="-1" aria-hidden="true"><img src="img/p04-infantil-asamblea.jpg" alt="" loading="lazy"></button><button type="button" class="ph" data-i="14" tabindex="-1" aria-hidden="true"><img src="img/p08-disfraces.jpg" alt="" loading="lazy"></button></span></div></div>
       </div>
     </div>
   </section>
@@ -724,7 +720,7 @@ nav.main a.btn{border-radius:10px}
   <div class="lightbox" id="lb" hidden>
     <button type="button" class="lb-close" aria-label="Cerrar">×</button>
     <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior">‹</button>
-    <figure><img alt=""><figcaption></figcaption></figure>
+    <figure><img alt=""></figure>
     <button type="button" class="lb-nav lb-next" aria-label="Foto siguiente">›</button>
   </div>
 
@@ -886,25 +882,17 @@ nav.main a.btn{border-radius:10px}
 
 
 
-  // Galería: filtros y visor
-  var figs=[].slice.call(document.querySelectorAll('.gallery figure'));
-  document.querySelectorAll('.filters button').forEach(function(b){
-    b.addEventListener('click',function(){
-      var f=b.getAttribute('data-f');
-      document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-      figs.forEach(function(fg){fg.hidden=!(f==='all'||fg.getAttribute('data-cat')===f)});
-    });
-  });
-  var lb=document.getElementById('lb'), lbImg=lb.querySelector('img'), lbCap=lb.querySelector('figcaption'), cur=0, last=null;
-  function visible(){return figs.filter(function(f){return !f.hidden})}
-  function show(i){var v=visible(); cur=(i+v.length)%v.length; var b=v[cur].querySelector('.gbtn'); lbImg.src=b.getAttribute('data-src'); lbImg.alt=b.getAttribute('data-cap'); lbCap.textContent=b.getAttribute('data-cap');}
-  function close(){lb.hidden=true; document.body.style.overflow=''; if(last) last.focus();}
-  figs.forEach(function(f){f.querySelector('.gbtn').addEventListener('click',function(){last=this; lb.hidden=false; document.body.style.overflow='hidden'; show(visible().indexOf(f)); lb.querySelector('.lb-close').focus();});});
+  // Fotos que pasan solas + visor
+  var SRC=[["p06-aula-dependencia", "Alumnas en el aula taller de Dependencia"], ["p01-san-isidro", "Alumnos en la fiesta de San Isidro"], ["p12-transferencias", "Práctica de transferencia desde silla de ruedas"], ["p02-voluntariado", "Alumnos en una actividad de voluntariado"], ["p05-cuento-fieltro", "Alumnas con un cuento de fieltro"], ["p09-braille", "Taller de braille"], ["p14-pipo-velasco", "Grupo de alumnos en una visita"], ["p13-simulador", "Alumnos probando un traje simulador"], ["p07-aula-infantil", "Clase en el aula de Infantil"], ["p15-reyes", "Alumnos disfrazados de Reyes Magos"], ["p11-sensorial", "Alumnos con materiales sensoriales"], ["p03-salida-cultural", "Grupo de alumnos en una salida"], ["p10-pantalla", "Alumnos con una pantalla digital"], ["p04-infantil-asamblea", "Alumnas en prácticas en un aula de Infantil"], ["p08-disfraces", "Alumnas disfrazadas"]];
+  var lb=document.getElementById('lb'), lbImg=lb.querySelector('img'), cur=0, last=null;
+  function show(i){cur=(i+SRC.length)%SRC.length;lbImg.src='img/'+SRC[cur][0]+'.jpg';lbImg.alt=SRC[cur][1];}
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus();}
+  document.querySelectorAll('.ph').forEach(function(b){b.addEventListener('click',function(){last=b;lb.hidden=false;document.body.style.overflow='hidden';show(+b.getAttribute('data-i'));lb.querySelector('.lb-close').focus();});});
   lb.querySelector('.lb-close').addEventListener('click',close);
   lb.querySelector('.lb-prev').addEventListener('click',function(){show(cur-1)});
   lb.querySelector('.lb-next').addEventListener('click',function(){show(cur+1)});
-  lb.addEventListener('click',function(e){if(e.target===lb) close();});
-  document.addEventListener('keydown',function(e){if(lb.hidden) return; if(e.key==='Escape') close(); if(e.key==='ArrowRight') show(cur+1); if(e.key==='ArrowLeft') show(cur-1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);});
 
   document.querySelectorAll('.copy').forEach(function(b){
     b.addEventListener('click',function(){
