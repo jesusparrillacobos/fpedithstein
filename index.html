@@ -436,7 +436,6 @@ h1,h2,h3{font-weight:600;letter-spacing:-.01em}
 .arch:hover,.arch.a2:hover{transform:none}
 .arch.a2:hover{transform:translateY(-40px)}
 @media (max-width:900px){.arch.a2:hover{transform:translateY(-24px)}}
-.spin{animation:none!important}
 .ciclo{border-radius:20px;box-shadow:0 1px 2px rgba(16,37,47,.06),0 18px 40px -24px rgba(16,37,47,.35)}
 .ciclo .side img.cphoto{border-width:4px}
 .tag,.jobs span,.mods span,.req{border-radius:8px}
@@ -915,6 +914,22 @@ nav.main a.btn{border-radius:10px}
       try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copiado';reset();},fallback);}catch(e){fallback();}
     });
   });
+
+  // Cifras que cuentan hacia arriba al aparecer
+  (function(){
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els=[].slice.call(document.querySelectorAll('.stat b')).filter(function(el){return /^[^\d]*[\d.]+[^\d]*$/.test(el.textContent.trim());});
+    if(reduce||!('IntersectionObserver' in window)||!els.length) return;
+    function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+    function run(el){
+      var m=el.textContent.trim().match(/^([^\d]*)([\d.]+)(.*)$/), pre=m[1], end=parseInt(m[2].replace(/\./g,''),10), suf=m[3], t0=null, dur=1600;
+      el.style.fontVariantNumeric='tabular-nums';
+      function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=pre+fmt(Math.round(end*e))+suf;if(p<1)requestAnimationFrame(step);}
+      requestAnimationFrame(step);
+    }
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){io.unobserve(en.target);run(en.target);}});},{threshold:.6});
+    els.forEach(function(el){io.observe(el);});
+  })();
 })();
 </script>
 
